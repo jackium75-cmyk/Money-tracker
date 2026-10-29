@@ -1,0 +1,18 @@
+{% load static %}<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Money Tracker{% endblock %}</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+  <link rel="stylesheet" href="{% static 'tracker/app.css' %}">
+  <script>try{const t=localStorage.getItem('mt-theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body class="auth-body">
+  <main class="auth-card">
+    <div class="brand brand-lg"><span class="brand-logo">💰</span><span>Money Tracker</span></div>
+    <p class="muted auth-tag">Income · Budgets · Daily Spending · Insights</p>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

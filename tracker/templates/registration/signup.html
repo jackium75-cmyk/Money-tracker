@@ -1,0 +1,17 @@
+{% extends "tracker/base_auth.html" %}
+{% block title %}Create account · Money Tracker{% endblock %}
+{% block content %}
+<form method="post" class="auth-form">
+  {% csrf_token %}
+  {% for field in form %}
+    <label class="field">
+      <span>{{ field.label }}</span>
+      {{ field }}
+      {% for e in field.errors %}<small class="err">{{ e }}</small>{% endfor %}
+    </label>
+  {% endfor %}
+  {% for e in form.non_field_errors %}<div class="banner banner-danger">{{ e }}</div>{% endfor %}
+  <button class="btn btn-primary btn-block" type="submit">Create account</button>
+</form>
+<p class="auth-alt">Already have an account? <a href="{% url 'login' %}">Sign in</a></p>
+{% endblock %}
